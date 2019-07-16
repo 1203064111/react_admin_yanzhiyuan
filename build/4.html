@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title></title>
+    <script  src="public.js"></script>
+    <script  src="js_back/jquery.js"></script>
+    <script  src="js_back/jquery.min.js"></script>
+    <script  src="js_back/ajaxfileupload.js"></script>
+</head>
+<script type="text/javascript">
+
+    $(function () {
+
+
+        $.post(member_homeurl+"settingInterfaces/v1.0/getHtmlDetail",{html_id:4}, function(data) {
+            var response = data ;
+
+            if (response.status === 'ok') {
+
+                $('#info').html(response.data);
+            } else if (response.status === 'error') {
+                $('#info').html("有问题");
+            }
+
+        });
+
+
+    });
+
+</script>
+<body>
+
+<div id="info"></div>
+
+
+</body>
+</html>

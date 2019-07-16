@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <title>微信登录</title>
+    <script  src="public.js"></script>
+    <script  src="JS/jquery.js"></script>
+    <script  src="JS/jquery.min.js"></script>
+    <script  src="JS/ajaxfileupload.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+    
+        var str =decodeURIComponent(window.location.search);
+        var code=getParameter(0,"code");
+        if(code!==undefined&&code&&code!==null&&code!==""){
+            $.post(homeurl+"/memberInterfaces.api?wxLoginMemberLenong",{code:code,member_type:'3'}, function(data) {
+                    var result = eval("(" + data + ")");
+                    if (result.status == "ok") {
+                    	//document.cookie="user_info="+JSON.stringify(result.data); 
+                    	setCookie("lenong_user_info",JSON.stringify(result.data));
+                    	var b_url=getCookie("b_url");
+                    	window.location.href=b_url;
+                    } else if (result.status == "error"){
+                        alert(result.error);
+                    }else{
+
+                    }
+            });
+        }else{
+            window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbeeadfb921b1c142&redirect_uri=http%3a%2f%2fbase.tstweiguanjia.com%2fwx_loginlenong.html&response_type=code&scope=snsapi_userinfo&state=STATE&connect_redirect=1#wechat_redirect";
+        }
+    </script>
+</body>
+</html>

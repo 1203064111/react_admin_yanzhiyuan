@@ -1,0 +1,62 @@
+/**
+ * Created by sjb on 18/5/11.
+ */
+
+var ZhangmuWidget = {
+    BitchSheepDetail:require("./BitchSheepDetail"),
+    Sheep:require("./Sheep"),
+    SheepClass:require("./SheepClass"),
+    SheepClassDetail:require("./SheepClassDetail"),
+    SheepDetail:require("./SheepDetail"),
+    welfare:require("./welfare"),
+    SheepCoupon:require("./SheepCoupon"),
+    SheepCouponDetail:require("./SheepCouponDetail"),
+    SheepBanner:require("./SheepBanner"),
+    SheepBroad:require("./Broad"),
+    SheepBroadDetail:require("./SheepBroadDetail"),
+    SheepBannerDetail:require("./SheepBannerDetail"),
+    Information:require("./Information"),
+    InformationDetail:require("./InformationDetail"),
+    JokeDetail:require("./Joke"),
+    Video:require("./video"),
+    VideoDetail:require("./video_detail"),
+    CameraDetail:require("./CameraDetail"),
+    Percent:require("./Percent"),
+    MsgType:require("./MsgType"),
+    SendMsg:require("./SendMsg"),
+    ShopGoods:require("./ShopGoods"),
+    ShopGoodsDetail:require("./ShopGoodsDetail"),
+    ShopGoodsDetailV2:require("./ShopGoodsDetailV2"),
+    SelectGoods:require("./SelectGoods"),
+    SheepOrders:require("./OrderSheep"),
+    SheepOrderDetail:require("./OrderSheepDetail"),
+    MemberSheeps:require("./MemberSheeps"),
+    MemberSheepDetail:require("./memberSheepDetail"),
+    SheepSource:require("./SheepSource"),
+    QuestionClass:require("./QuestionClass"),
+    QuestionClassDetail:require("./QuestionClassDetail"),
+    Questions:require("./Question"),
+    QuestionDetail:require("./QuestionDetail"),
+    ShopCoupons:require("./ShopCoupon"),
+    ShopCOuponDetail:require("./ShopCouponDetail"),
+    Goods:require("./Goods"),
+    GoodsDetail:require("./GoodsEditor"),
+    GameConfig:require("./GameConfig"),
+    GameGoods:require("./GameGoods"),
+    GameGoodsDetail:require("./GameGoodsDetail"),
+    GameTask:require("./GameTask"),
+    GameTaskDetail:require("./GameTaskDetail"),
+    GameGoodsClass:require("./GameGoodsClass"),
+    GameGoodsClassDetail:require("./GameGoodsClassDetail"),
+    GameJokes:require("./GameJoke"),
+    GameJokeDetail:require("./GameJokeDetail"),
+    GamePhoto:require("./GamePhoto"),
+    GamePhotoDetail:require("./GamePhotoDetail"),
+    Share:require("./Share"),
+    ShareDetail:require("./ShareDetail"),
+
+
+
+
+};
+module.exports = ZhangmuWidget;

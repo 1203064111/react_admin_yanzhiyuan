@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <title>微信登录</title>
+    <script  src="public.js"></script>
+    <script  src="js_back/jquery.js"></script>
+    <script  src="js_back/jquery.min.js"></script>
+    <script  src="js_back/ajaxfileupload.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+		var a_url=getCookie("a_url");
+		var params=a_url.split('?');
+		var register_channel="1";
+		if(params&&params.length>1){
+			var params2=params[1].split("&");
+			if(params2&&params2.length>1){
+				var params3=params2[1].split("=");
+				if(params3&&params3.length>1){
+					if(params3[0]=="register_channel"){
+						register_channel=params3[1];
+					}
+				}
+			}
+		}
+        var str =decodeURIComponent(window.location.search);
+        var code=getParameter(0,"code");
+        if(code!==undefined&&code&&code!==null&&code!==""){
+            $.post(homeurl+"/memberInterfaces.api?wxLoginMember",{code:code,member_type:'1',register_channel:register_channel}, function(data) {
+                    var result = eval("(" + data + ")");
+                    if (result.status == "ok") {
+                    	//document.cookie="user_info="+JSON.stringify(result.data); 
+                    	setCookie("user_info",JSON.stringify(result.data));
+                    	window.location.href=a_url;
+                    } else if (result.status == "error"){
+                        alert(result.error);
+                    }else{
+
+                    }
+            });
+        }else{
+            window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2be2d63ca2956682&redirect_uri=http%3a%2f%2fbase.tstweiguanjia.com%2fwx_login.html&response_type=code&scope=snsapi_userinfo&state=STATE&connect_redirect=1#wechat_redirect";
+        }
+    </script>
+</body>
+</html>
